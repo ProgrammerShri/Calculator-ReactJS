@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+// import "App.css"
 import Button from "./Button";
 import Label from "./Label";
 import Result from "./Result";
@@ -32,7 +32,6 @@ class App extends Component {
     {
       checkResult = this.state.result;
     }
-
     try {
       this.setState({
         result: eval(checkResult),
@@ -59,7 +58,7 @@ class App extends Component {
   render() {
     return (
       <div className="MainDiv">
-        <Label />
+      <div> CALCULATOR</div> 
         <div>
           {" "}
           <Result result={this.state.result} />{" "}
