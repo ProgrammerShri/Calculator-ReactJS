@@ -1,13 +1,28 @@
 import React from "react";
 
 class Button extends React.Component {
+  
+  constructor(){
+    super();
 
+    
+    var btnVal 
+    this.state = {
+      btnVal: ['1','2','3','+','4','5','6','-','7','8','9','*','.','0','=','/','C','CE']
+    }
+  }
+
+  
   render() {
     return (
-
+     
+      
       <div>
         <div className="button">
-            <button id="Sbtn" name="C" onClick={e => this.props.onClick(e.target.name)} > Clear </button>
+
+        {this.state.btnVal.map((val) => {return <button id ="btn" name={val} onClick={e => this.props.onClick(e.target.name)} > {val} </button> 
+        })} 
+            {/* <button id="Sbtn" name="C" onClick={e => this.props.onClick(e.target.name)} > Clear </button>
             <button id="Sbtn" name="CE" onClick={e => this.props.onClick(e.target.name)}  > Backspace </button> <br/>
 
                 <button id ="btn" name="1" onClick={e => this.props.onClick(e.target.name)}>1</button>
@@ -28,10 +43,10 @@ class Button extends React.Component {
                 <button id ="btn" name="." onClick={e => this.props.onClick(e.target.name)}>.</button>
                 <button id ="btn"name="0" onClick={e => this.props.onClick(e.target.name)}>0</button>
                 <button id ="btn" name="=" onClick={e => this.props.onClick(e.target.name)}>=</button>
-                <button id ="btn" name="/" onClick={e => this.props.onClick(e.target.name)}>÷</button><br/>
+                <button id ="btn" name="/" onClick={e => this.props.onClick(e.target.name)}>÷</button><br/> */}
         </div>
       </div>
-    );
+    )
   }
   
 }
