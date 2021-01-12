@@ -1,14 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Result extends Component {
-  render() {
-    let { result } = this.props;
+const Result = (props) => {
+  
+   
+    
     return (
       <div>
-      <input className="Input" value={result} />
+      <input className="Input" value={props.result} />
+
         {/* <p className="Input"> {result} </p> */}
       </div>
     );
-  }
+  
 }
 export default Result;

@@ -1,75 +1,77 @@
-import React, { Component } from "react";
+import React, {useState} from "react";
 import "../App.css"
 import Button from "./Button";
-import Label from "./Label";
 import Result from "./Result";
 
-class App extends Component {
-  constructor() {
-    super();
+// class App extends Component {
+//   constructor() {
+//     super();
 
-    this.state = {
-      result: "",
-    };
-  }
+//     this.state = {
+//       result: "",
+//     };
+//   }
 
-  onClick = (button) => {
-    if (button === "=") {
-      this.calculate();
-    } else if (button === "C") {
-      this.reset();
-    } else if (button === "CE") {
-      this.backspace();
+
+
+const App = () => {
+
+  let [result, setResult] = useState('');
+
+
+  let onClick = (value) => {
+    if (value === "=") {
+      calculate();
+    } else if (value === "C") {
+      reset();
+    } else if (value === "CE") {
+      backspace();
     } else {
-      this.setState({
-        result: this.state.result + button,
-      });
+       setResult(result + value);
     }
+    
   };
 
-  calculate = () => {
+  let calculate = () => {
     let checkResult = "";
-    {
-      checkResult = this.state.result;
-    }
+    
+      checkResult = result;
+    
     try {
-      this.setState({
-        result: eval(checkResult),
-      });
+
+      let r =  eval(checkResult); 
+      console.log(typeof(r))
+      setResult(r.toString())
     } catch (e) {
-      this.setState({
-        result: "error",
-      });
+      setResult("error"
+    );
     }
   };
 
-  reset = () => {
-    this.setState({
-      result: "",
-    });
+  let reset = () => {
+    setResult("");
   };
 
-  backspace = () => {
-    this.setState({
-      result: this.state.result.slice(0, -1),
-    });
+  let backspace = () => {
+    console.log(result)
+    setResult(result.slice(0, -1));
   };
 
-  render() {
+  
     return (
       <div className="MainDiv">
       <div className="Label"> CALCULATOR</div> 
         <div>
           {" "}
-          <Result result={this.state.result} />{" "}
+          <Result result={result} />{" "}
         </div>
         <div>
           {" "}
-          <Button onClick={this.onClick} />{" "}
+          <Button handleClick={(e)=>onClick(e)} />{" "}
         </div>
       </div>
     );
-  }
+  
 }
 
 export default App;

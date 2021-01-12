@@ -1,27 +1,25 @@
-import React from "react";
+import React, {useState}from "react";
 
-class Button extends React.Component {
+// class Button extends React.Component {
   
-  constructor(){
-    super();
+//   constructor(){
+//     super();
+const Button = (props) => {
 
+  let [btn, setBtn] = useState(['1','2','3','+','4','5','6','-','7','8','9','*','.','0','=','/','C','CE'])
     
-    var btnVal 
-    this.state = {
-      btnVal: ['1','2','3','+','4','5','6','-','7','8','9','*','.','0','=','/','C','CE']
-    }
-  }
-
+ 
   
-  render() {
+   
     return (
-     
-      
       <div>
         <div className="button">
 
-        {this.state.btnVal.map((val) => {return <button id ="btn" name={val} onClick={e => this.props.onClick(e.target.name)} > {val} </button> 
+        {btn.map((val) => {return <button id ="btn" name={val} onClick={e => props.handleClick(e.target.name)} > {val} </button> 
         })} 
+
+
+
             {/* <button id="Sbtn" name="C" onClick={e => this.props.onClick(e.target.name)} > Clear </button>
             <button id="Sbtn" name="CE" onClick={e => this.props.onClick(e.target.name)}  > Backspace </button> <br/>
 
@@ -47,8 +45,7 @@ class Button extends React.Component {
         </div>
       </div>
     )
-  }
   
-}
-
+              }
+            
 export default Button;
